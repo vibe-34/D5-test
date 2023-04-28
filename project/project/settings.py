@@ -158,9 +158,30 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_FORMS = {"signup": "accounts.forms.CustomSignupForm"}  # Чтобы allauth распознал нашу форму как ту, что должна выполняться вместо формы по умолчанию
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True  # позволит избежать дополнительного входа и активирует аккаунт сразу, как только мы перейдём по ссылке
+# ACCOUNT_CONFIRM_EMAIL_ON_GET = True  # позволит избежать дополнительного входа и активирует аккаунт сразу, как только мы перейдём по ссылке
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # Таким образом мы можем, например, вместо отправки сообщений на реальные почтовые адреса печатать их в консоли.
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = "mvideo34"
+EMAIL_HOST_PASSWORD = "lnhtsxcowwgsaeax"
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
 
+DEFAULT_FROM_EMAIL = "mvideo34@yandex.ru"
 
+SERVER_EMAIL = "mvideo34@yandex.ru"
+
+# при новой регистрации, данному списку менеджеров будет приходить оповещение
+MANAGERS = (
+    ('manager1', 'ServisVLG4@yandex.ru'),
+)
+
+# при новой регистрации, данному списку администраторов будет приходить оповещение
+ADMINS = (
+    ('administrator', 'servisvlg4@rambler.ru'),
+)
 
